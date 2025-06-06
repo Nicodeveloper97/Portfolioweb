@@ -1,9 +1,36 @@
 "use client"
 
+import type React from "react"
+
 import { motion } from "framer-motion"
-import { Heart, Code } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export default function Footer() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+
+    if (isMobile) {
+      const mailtoLink =
+        "mailto:nicoiglesiasdeveloper@gmail.com?subject=Contacto desde Portfolio&body=Hola Nicolas, me gustaría contactarte sobre..."
+      window.location.href = mailtoLink
+    } else {
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=nicoiglesiasdeveloper@gmail.com&su=Contacto desde Portfolio&body=Hola Nicolas, me gustaría contactarte sobre...`
+      window.open(gmailUrl, "_blank")
+    }
+  }
+
   return (
     <footer className="bg-navy text-white py-8 sm:py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,13 +68,15 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-base sm:text-lg font-semibold mb-4">Conecta Conmigo</h4>
             <div className="flex justify-center md:justify-start space-x-4">
-              <motion.a
-                href="mailto:nicoiglesiasdeveloper@gmail.com?subject=Contacto desde Portfolio&body=Hola Nicolas, me gustaría contactarte sobre..."
+              <motion.button
+                onClick={handleEmailClick}
                 whileHover={{ scale: 1.1 }}
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-taupe/20 transition-colors"
+                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-taupe/20 transition-colors cursor-pointer"
+                title={isMobile ? "Abrir email" : "Abrir Gmail Web"}
               >
                 <span className="text-sm">📧</span>
-              </motion.a>
+              </motion.button>
+
               <motion.a
                 href="https://github.com/Nicodeveloper97"
                 target="_blank"
@@ -76,13 +105,8 @@ export default function Footer() {
               © {new Date().getFullYear()} Nicolas Iglesias. Todos los derechos reservados.
             </p>
 
-            <div className="flex items-center gap-2 text-white/60 text-xs sm:text-sm">
-              <span>Hecho con</span>
-              <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-taupe fill-current" />
-              <span>y</span>
-              <Code className="w-3 h-3 sm:w-4 sm:h-4 text-brown" />
-              <span className="hidden sm:inline">en React + Vite + Tailwind</span>
-              <span className="sm:hidden">con ❤️</span>
+            <div className="flex items-center justify-center md:justify-end gap-2 text-white/60 text-xs sm:text-sm">
+              <span>🎯 Enfocado en experiencias que impactan.</span>
             </div>
           </div>
         </div>

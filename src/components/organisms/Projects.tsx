@@ -19,70 +19,86 @@ interface Project {
   duration: string
   team: string
   features: string[]
+  role?: string
+  challenge?: string
+  solution?: string
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "Plataforma de comercio electrónico completa con panel de administración",
+    title: "Megatlon",
+    description: "Plataforma web para la cadena líder de gimnasios en Argentina",
     longDescription:
-      "Una plataforma de e-commerce moderna y escalable desarrollada con React y Node.js. Incluye gestión de productos, carrito de compras, procesamiento de pagos con Stripe, panel de administración completo y sistema de autenticación robusto.",
-    image: "/placeholder.svg",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS", "Prisma"],
-    githubUrl: "https://github.com/Nicodeveloper97",
-    liveUrl: "https://ecommerce-demo.com",
-    duration: "3 meses",
-    team: "Solo",
+      "Desarrollo completo del sitio web para Megatlon, la cadena de gimnasios premium más grande de Argentina. El proyecto incluyó un sistema de gestión de membresías, integración con pasarela de pagos, y un panel administrativo para gestionar sedes, clases y promociones.",
+    image: "/images/megatlon.avif",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API", "AWS"],
+    liveUrl: "https://megatlon.com/",
+    duration: "4 meses",
+    team: "Equipo de 3 desarrolladores",
+    role: "Desarrollador Full Stack",
+    challenge:
+      "Crear una plataforma que pudiera manejar miles de usuarios simultáneos, integrando sistemas de pago y reservas en tiempo real para más de 30 sedes.",
+    solution:
+      "Implementé una arquitectura escalable con React para el frontend y Node.js para el backend, utilizando MongoDB para gestionar grandes volúmenes de datos de usuarios y clases. La integración con AWS permitió un rendimiento óptimo incluso en horas pico.",
     features: [
-      "Catálogo de productos con filtros avanzados",
-      "Carrito de compras persistente",
-      "Integración con Stripe para pagos",
-      "Panel de administración completo",
-      "Sistema de autenticación JWT",
-      "Responsive design",
+      "Sistema de reserva de clases en tiempo real",
+      "Pasarela de pagos para membresías",
+      "Panel de administración para gestión de sedes",
+      "Integración con app móvil para usuarios",
+      "Sistema de notificaciones automáticas",
+      "Analíticas de uso y asistencia",
     ],
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "Aplicación de gestión de tareas con colaboración en tiempo real",
+    title: "Nuba Travel",
+    description: "Plataforma de experiencias de viaje de lujo con diseño premium",
     longDescription:
-      "Una aplicación de gestión de proyectos y tareas que permite la colaboración en tiempo real entre equipos. Desarrollada con React y Socket.io para actualizaciones en vivo, incluye tableros Kanban, asignación de tareas y notificaciones push.",
-    image: "/placeholder.svg",
-    technologies: ["React", "Socket.io", "MongoDB", "Material-UI"],
-    githubUrl: "https://github.com/Nicodeveloper97",
-    liveUrl: "https://taskapp-demo.com",
-    duration: "2 meses",
-    team: "2 desarrolladores",
+      "Diseño y desarrollo de la plataforma digital para Nuba, agencia especializada en viajes de lujo y experiencias exclusivas. El proyecto requirió un enfoque centrado en la estética visual y la experiencia de usuario para transmitir la exclusividad de la marca.",
+    image: "/images/nuba.avif",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Strapi CMS", "Framer Motion", "Vercel"],
+    liveUrl: "https://nuba.com/",
+    duration: "3 meses",
+    team: "Equipo de 2 desarrolladores y 1 diseñador UI/UX",
+    role: "Desarrollador Frontend y UI",
+    challenge:
+      "Crear una experiencia digital que transmitiera la elegancia y exclusividad de la marca, manteniendo tiempos de carga rápidos a pesar del contenido visual de alta calidad.",
+    solution:
+      "Implementé Next.js con optimización de imágenes y animaciones sutiles con Framer Motion para crear una experiencia inmersiva sin comprometer el rendimiento. El diseño minimalista y las transiciones elegantes reflejan la identidad premium de la marca.",
     features: [
-      "Tableros Kanban interactivos",
-      "Colaboración en tiempo real",
-      "Asignación y seguimiento de tareas",
-      "Notificaciones push",
-      "Chat integrado",
-      "Reportes de productividad",
+      "Diseño minimalista y elegante",
+      "Animaciones y transiciones fluidas",
+      "Catálogo de destinos con filtros avanzados",
+      "Sistema de reservas para experiencias exclusivas",
+      "Sección especializada para lunas de miel",
+      "Plataforma multiidioma",
     ],
   },
   {
     id: 3,
-    title: "Weather Dashboard",
-    description: "Dashboard meteorológico con visualización de datos y predicciones",
+    title: "Sparta Gym Madryn",
+    description: "Proyecto en construcción: Sistema de gestión para gimnasio local",
     longDescription:
-      "Un dashboard completo para visualización de datos meteorológicos con gráficos interactivos, mapas y predicciones. Integra múltiples APIs meteorológicas y presenta la información de manera clara y atractiva.",
-    image: "/placeholder.svg",
-    technologies: ["React", "D3.js", "OpenWeather API", "Chart.js", "Vite"],
+      "Proyecto en desarrollo para Sparta Gym, un gimnasio local en Puerto Madryn. Actualmente en fase de construcción, este sistema permitirá la gestión completa de miembros, rutinas personalizadas y clases grupales a través de una interfaz intuitiva y moderna.",
+    image: "/placeholder.svg?height=400&width=600",
+    technologies: ["React", "Firebase", "Tailwind CSS", "Netlify", "Stripe", "PWA"],
     githubUrl: "https://github.com/Nicodeveloper97",
-    liveUrl: "https://weather-dashboard-demo.com",
-    duration: "1 mes",
-    team: "Solo",
+    liveUrl: "https://spartagymmadryn.netlify.app/",
+    duration: "En desarrollo",
+    team: "Desarrollo individual",
+    role: "Desarrollador Full Stack",
+    challenge:
+      "Crear una solución completa y económica para un gimnasio local que necesita presencia digital y herramientas para gestionar sus miembros sin grandes inversiones en infraestructura.",
+    solution:
+      "Estoy desarrollando una Progressive Web App con React y Firebase, que permitirá funcionalidades avanzadas con costos mínimos de hosting. La implementación de Stripe para pagos recurrentes automatizará la gestión de membresías.",
     features: [
-      "Visualización de datos en tiempo real",
-      "Gráficos interactivos con D3.js",
-      "Mapas meteorológicos",
-      "Predicciones a 7 días",
-      "Alertas meteorológicas",
-      "Geolocalización automática",
+      "Sistema de gestión de rutinas para usuarios (en desarrollo)",
+      "Panel de administración para entrenadores (próximamente)",
+      "Seguimiento de progreso para miembros",
+      "Calendario de clases interactivo",
+      "Sistema de pagos y membresías",
+      "Funcionalidad offline como PWA",
     ],
   },
 ]

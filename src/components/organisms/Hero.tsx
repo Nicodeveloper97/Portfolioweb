@@ -1,11 +1,29 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Monitor, Download, ArrowDown } from "lucide-react"
+import { Monitor, ArrowDown, Code, Palette, Zap } from "lucide-react"
 import { Button } from "../ui/button"
 import ScrollReveal from "../atoms/ScrollReveal"
 
 export default function Hero() {
+  const mobileFeatures = [
+    {
+      icon: Code,
+      title: "Desarrollo Full Stack",
+      description: "Frontend y Backend",
+    },
+    {
+      icon: Palette,
+      title: "Diseño Moderno",
+      description: "UI/UX atractivo",
+    },
+    {
+      icon: Zap,
+      title: "Alto Rendimiento",
+      description: "Optimización avanzada",
+    },
+  ]
+
   return (
     <section
       id="hero"
@@ -45,27 +63,62 @@ export default function Hero() {
                 </p>
               </motion.div>
 
+              {/* Características para móvil */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="lg:hidden grid grid-cols-1 sm:grid-cols-3 gap-4 py-6"
+              >
+                {mobileFeatures.map((feature, index) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                    className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-taupe/10 shadow-sm"
+                  >
+                    <div className="text-center space-y-2">
+                      <div className="w-10 h-10 mx-auto bg-gradient-to-br from-navy to-brown rounded-lg flex items-center justify-center">
+                        <feature.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="font-semibold text-navy text-sm">{feature.title}</h3>
+                      <p className="text-xs text-gray-600">{feature.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Estadísticas para móvil */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="lg:hidden grid grid-cols-2 gap-6 py-4"
+              >
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-black mb-1">3+</div>
+                  <div className="text-sm text-gray-600">Años de experiencia</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-black mb-1">20+</div>
+                  <div className="text-sm text-gray-600">Proyectos completados</div>
+                </div>
+              </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                className="flex justify-center lg:justify-start"
               >
                 <Button
                   size="lg"
-                  className="bg-brown hover:bg-taupe text-offWhite px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
+                  className="bg-brown hover:bg-taupe text-offWhite px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
                   onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   Ver Proyectos
                   <ArrowDown className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-navy text-navy hover:bg-navy hover:text-offWhite px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
-                >
-                  <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                  Descargar CV
                 </Button>
               </motion.div>
 
@@ -83,6 +136,7 @@ export default function Hero() {
             </div>
           </ScrollReveal>
 
+          {/* SVG solo para desktop */}
           <ScrollReveal delay={0.3}>
             <div className="relative hidden lg:block xl:block">
               <motion.div

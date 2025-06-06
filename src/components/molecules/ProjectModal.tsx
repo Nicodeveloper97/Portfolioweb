@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, ExternalLink, Calendar, Users } from "lucide-react"
+import { X, ExternalLink, Calendar, Users, Code, Briefcase, Lightbulb, CheckCircle } from "lucide-react"
 import { Button } from "../ui/button"
 
 interface Project {
@@ -16,6 +16,9 @@ interface Project {
   duration: string
   team: string
   features: string[]
+  role?: string
+  challenge?: string
+  solution?: string
 }
 
 interface ProjectModalProps {
@@ -55,7 +58,19 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
               <div className="flex-1 overflow-y-auto p-4 sm:p-6">
                 <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
                   <div className="order-2 lg:order-1">
-                    <div className="h-48 sm:h-64 bg-gradient-to-br from-navy to-brown rounded-xl mb-6" />
+                    <div className="h-48 sm:h-64 bg-gradient-to-br from-navy to-brown rounded-xl mb-6 overflow-hidden">
+                      {project.image.includes("placeholder") ? (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <span className="text-white text-xl font-bold">{project.title}</span>
+                        </div>
+                      ) : (
+                        <img
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          className="w-full h-full object-cover object-center"
+                        />
+                      )}
+                    </div>
 
                     <div className="space-y-4">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-600">
@@ -67,6 +82,12 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                           <Users className="w-4 h-4" />
                           <span>{project.team}</span>
                         </div>
+                        {project.role && (
+                          <div className="flex items-center gap-2">
+                            <Briefcase className="w-4 h-4" />
+                            <span>{project.role}</span>
+                          </div>
+                        )}
                       </div>
 
                       <div className="flex flex-col sm:flex-row gap-3">
@@ -76,7 +97,17 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                             onClick={() => window.open(project.liveUrl, "_blank")}
                           >
                             <ExternalLink className="w-4 h-4 mr-2" />
-                            Ver Demo
+                            Ver Sitio
+                          </Button>
+                        )}
+                        {project.githubUrl && (
+                          <Button
+                            variant="outline"
+                            className="border-navy text-navy hover:bg-navy hover:text-white w-full sm:w-auto"
+                            onClick={() => window.open(project.githubUrl, "_blank")}
+                          >
+                            <Code className="w-4 h-4 mr-2" />
+                            Ver Código
                           </Button>
                         )}
                       </div>
@@ -88,6 +119,26 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                       <h3 className="text-lg font-semibold mb-3 text-navy">Descripción</h3>
                       <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{project.longDescription}</p>
                     </div>
+
+                    {project.challenge && (
+                      <div>
+                        <h3 className="text-lg font-semibold mb-3 text-navy flex items-center gap-2">
+                          <Lightbulb className="w-5 h-5 text-brown" />
+                          Desafío
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{project.challenge}</p>
+                      </div>
+                    )}
+
+                    {project.solution && (
+                      <div>
+                        <h3 className="text-lg font-semibold mb-3 text-navy flex items-center gap-2">
+                          <CheckCircle className="w-5 h-5 text-brown" />
+                          Solución
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{project.solution}</p>
+                      </div>
+                    )}
 
                     <div>
                       <h3 className="text-lg font-semibold mb-3 text-navy">Características Principales</h3>
