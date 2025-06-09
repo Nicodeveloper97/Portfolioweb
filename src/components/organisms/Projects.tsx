@@ -84,7 +84,7 @@ const projects: Project[] = [
     image: "/placeholder.svg?height=400&width=600",
     technologies: ["React", "Firebase", "Tailwind CSS", "Netlify", "Stripe", "PWA"],
     githubUrl: "https://github.com/Nicodeveloper97",
-    liveUrl: "https://spartagymmadryn.netlify.app/",
+    liveUrl: "https://gymspartaweb.netlify.app/",
     duration: "En desarrollo",
     team: "Desarrollo individual",
     role: "Desarrollador Full Stack",
