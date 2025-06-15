@@ -25,29 +25,31 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
+ {
     id: 1,
-    title: "Megatlon",
-    description: "Plataforma web para la cadena líder de gimnasios en Argentina",
+    title: "EISISA",
+    description: "Sitio web corporativo para empresa de ingeniería y servicios industriales",
     longDescription:
-      "Desarrollo completo del sitio web para Megatlon, la cadena de gimnasios premium más grande de Argentina. El proyecto incluyó un sistema de gestión de membresías, integración con pasarela de pagos, y un panel administrativo para gestionar sedes, clases y promociones.",
-    image: "/images/megatlon.avif",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API", "AWS"],
-    liveUrl: "https://megatlon.com/",
-    duration: "4 meses",
-    team: "Equipo de 3 desarrolladores",
+      "Desarrollo del sitio web corporativo para EISI S.A., empresa patagónica con 30 años de experiencia en ingeniería, diseño y construcciones. La empresa se especializa en soluciones industriales integrales, servicios de saneamiento industrial, tratamiento de aguas y logística ocupacional en sitios remotos, operando 24/7 los 365 días del año.",
+    image: "/images/eisisa.avif",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+    liveUrl: "https://eisisa.com/",
+    duration: "2 meses",
+    team: "Desarrollo individual",
     role: "Desarrollador Full Stack",
     challenge:
-      "Crear una plataforma que pudiera manejar miles de usuarios simultáneos, integrando sistemas de pago y reservas en tiempo real para más de 30 sedes.",
+      "Crear una presencia digital profesional que refleje la solidez y experiencia de una empresa industrial con 30 años de trayectoria, comunicando eficientemente sus servicios especializados a diferentes sectores industriales.",
     solution:
-      "Implementé una arquitectura escalable con React para el frontend y Node.js para el backend, utilizando MongoDB para gestionar grandes volúmenes de datos de usuarios y clases. La integración con AWS permitió un rendimiento óptimo incluso en horas pico.",
+      "Desarrollé un sitio web moderno y funcional que destaca la experiencia y capacidades técnicas de EISISA. Implementé una arquitectura clara que organiza sus múltiples servicios (SSI, SIC, STA) de manera intuitiva, con diseño responsive optimizado para dispositivos móviles y desktop.",
     features: [
-      "Sistema de reserva de clases en tiempo real",
-      "Pasarela de pagos para membresías",
-      "Panel de administración para gestión de sedes",
-      "Integración con app móvil para usuarios",
-      "Sistema de notificaciones automáticas",
-      "Analíticas de uso y asistencia",
+      "Diseño corporativo profesional y moderno",
+      "Sección de servicios industriales especializados",
+      "Información detallada sobre capacidades operativas",
+      "Formularios de contacto y consulta",
+      "Optimización SEO para búsquedas industriales",
+      "Integración con WhatsApp Business para consultas",
+      "Responsive design para todos los dispositivos",
+      "Sección de noticias y actualizaciones",
     ],
   },
   {
@@ -77,7 +79,7 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Sparta Gym Madryn",
+    title: "Gym Sparta Madryn",
     description: "Proyecto en construcción: Sistema de gestión para gimnasio local",
     longDescription:
       "Proyecto en desarrollo para Sparta Gym, un gimnasio local en Puerto Madryn. Actualmente en fase de construcción, este sistema permitirá la gestión completa de miembros, rutinas personalizadas y clases grupales a través de una interfaz intuitiva y moderna.",

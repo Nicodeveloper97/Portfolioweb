@@ -182,7 +182,7 @@ export default function Hero() {
                         <div className="text-xs lg:text-sm text-gray-600">Años de experiencia</div>
                       </div>
                       <div>
-                        <div className="text-xl lg:text-2xl font-bold text-black">50+</div>
+                        <div className="text-xl lg:text-2xl font-bold text-black">20+</div>
                         <div className="text-xs lg:text-sm text-gray-600">Proyectos completados</div>
                       </div>
                     </div>
