@@ -45,7 +45,7 @@ export default function ProjectCard({
         <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
           <h3 className="text-lg sm:text-xl font-bold">{title}</h3>
         </div>
-        {title === "Sparta Gym Madryn" && (
+        {title === "Gym Sparta Madryn" && (
           <div className="absolute top-2 right-2 bg-brown/90 text-white text-xs px-2 py-1 rounded-full font-medium animate-pulse">
             En construcción
           </div>

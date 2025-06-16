@@ -25,7 +25,7 @@ interface Project {
 }
 
 const projects: Project[] = [
- {
+  {
     id: 1,
     title: "EISISA",
     description: "Sitio web corporativo para empresa de ingeniería y servicios industriales",
